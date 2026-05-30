@@ -13,8 +13,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Convenios Coprocenva",
-  description: "Convenios Coprocenva",
+  title: {
+    default: "Convenios Coprocenva",
+    template: "%s | Convenios Coprocenva",
+  },
+  description:
+    "Convenios y beneficios para asociados de Coprocenva. Consulta beneficios con aliados, genera bonos y accede a descuentos exclusivos.",
 };
 
 export default function RootLayout({
@@ -24,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
+      lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
