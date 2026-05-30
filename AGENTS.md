@@ -1,3 +1,21 @@
+# Project context
+
+Read before implementing:
+
+- `docs/product/contexto-general.md` — product goals, modules, phases.
+- `docs/architecture/folder-structure.md` — folder layout, layers, and conventions.
+
+## Summary
+
+- Platform for managing convenios, beneficios, aliados, asociados, and bonos.
+- Two surfaces: **public portal** (asociados) and **admin panel** (internal users).
+- Stack: Next.js App Router, tRPC, TanStack Query, Drizzle + MySQL, shadcn/ui.
+- Build in phases; **MVP first**: auth, public portal basics, CRUD for convenios/aliados/categorías, bonos with PDF, minimal RBAC.
+- **Folder layout**: `app/` (thin pages), `server/` (tRPC, services, db, auth), `components/` (ui + portal/admin), `lib/` (client utils).
+- Business logic lives in `server/services/`, not in components or tRPC routers.
+- Integrations (PDF, email, Excel, file storage) go in `server/integrations/`, decoupled from business logic.
+- Before implementing a feature, clarify entities, business rules, permissions, validations, side effects, and audit needs.
+
 # Package manager
 
 Always use **pnpm** for this repo. Do not use npm or yarn.
