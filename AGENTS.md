@@ -16,6 +16,10 @@ Read before implementing:
 - Integrations (PDF, email, Excel, file storage) go in `server/integrations/`, decoupled from business logic.
 - Before implementing a feature, clarify entities, business rules, permissions, validations, side effects, and audit needs.
 
+## UI
+
+- **Light mode only** — no dark mode, no `prefers-color-scheme: dark`, no theme toggle. Do not add `dark:` Tailwind variants or dark shadcn themes.
+
 # Package manager
 
 Always use **pnpm** for this repo. Do not use npm or yarn.

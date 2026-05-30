@@ -170,7 +170,7 @@ Implementaciones desacopladas (PDF, email, Excel, storage). Los services llaman 
 
 ### `components/ui/` — shadcn
 
-Componentes primitivos generados con la CLI de shadcn. Sin lógica de negocio.
+Componentes primitivos generados con la CLI de shadcn. Sin lógica de negocio. Inicializar shadcn con tema claro únicamente (sin dark mode).
 
 ### `components/portal/` y `components/admin/`
 
@@ -207,6 +207,12 @@ Preferir `server/services/convenios/create-convenio.ts` sobre un monolito `conve
 
 Un schema en `server/validators/`, reutilizado en tRPC y en formularios del admin (react-hook-form). No duplicar validaciones.
 
+## UI
+
+- **Solo light mode** — la plataforma no tendrá dark mode ni theme toggle.
+- No usar `@media (prefers-color-scheme: dark)`, variantes `dark:` de Tailwind, ni temas dark de shadcn.
+- Mantener `color-scheme: light` en `:root` (`app/globals.css`) para que controles nativos del navegador respeten el tema claro.
+
 ## MVP — carpetas mínimas
 
 Crear al inicio de Fase 1; el resto se agrega cuando se necesite.
@@ -236,3 +242,4 @@ Integraciones (`pdf`, `email`), módulos de Fase 2 y `repositories/` se agregan 
 3. **Portal y admin en un solo layout** — layouts y auth distintos desde el inicio.
 4. **Duplicar schemas** — un Zod schema, múltiples consumidores.
 5. **Dependencia directa de proveedores** en services — usar `server/integrations/`.
+6. **Dark mode** — no implementar variantes, toggles ni estilos condicionados por `prefers-color-scheme`.
