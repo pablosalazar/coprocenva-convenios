@@ -22,6 +22,15 @@ cp .env.example .env   # configure DATABASE_URL
 pnpm dev
 ```
 
+### Database (Drizzle + MySQL)
+
+```bash
+pnpm db:generate   # generate SQL migrations from schema changes
+pnpm db:migrate    # apply migrations
+pnpm db:push       # push schema directly (dev only)
+pnpm db:studio     # open Drizzle Studio
+```
+
 Open [http://localhost:3000](http://localhost:3000).
 
 ## Documentación
